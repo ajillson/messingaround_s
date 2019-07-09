@@ -120,6 +120,9 @@ add_action( 'widgets_init', 'messingaround_widgets_init' );
  * Enqueue scripts and styles.
  */
 function messingaround_scripts() {
+	//Enqueue Google Fonts: Merriweather and Proza Libre.
+	wp_enqueue_style( 'messingaround-fonts', 'https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,700|Proza+Libre:600,600i,700,700i&display=swap' );
+	
 	wp_enqueue_style( 'messingaround-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'messingaround-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
