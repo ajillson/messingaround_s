@@ -1,13 +1,13 @@
 /*!
-Theme Name: Messing Around
-Theme URI: http://underscores.me/
+Theme Name: Messing Around with _s
+Theme URI: https://github.com/ajillson/messingaround_s.git
 Author: Aimee Jillson
-Author URI: http://underscores.me/
-Description: Description
+Author URI: https://ajillson.com
+Description: Experimentation with WordPress theme creation using _s loosely based on "WordPress: Building Themes from Scratch Using Underscores" course from Lynda.com, Morten Rand-Hendriksen author.
 Version: 1.0.0
-License: GNU General Public License v2 or later
+License: GNU General Public License v3 or later
 License URI: LICENSE
-Text Domain: messingaround
+Text Domain: messingaround-with-underscores
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
 This theme, like WordPress, is licensed under the GPL.
@@ -86,14 +86,14 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import "modules/clearings";
 
 /*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
-@import "site/secondary/widgets";
-
-/*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
 @import "site/site";
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+@import "site/secondary/widgets";
 
 /*--------------------------------------------------------------
 # Infinite scroll
