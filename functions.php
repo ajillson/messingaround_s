@@ -5,6 +5,7 @@
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package Messing_Around
+ * Some functions borrowed from theme Twentyseventeen and adapted as noted.
  */
 
 if ( ! function_exists( 'messingaround_setup' ) ) :
@@ -84,6 +85,65 @@ endif;
 add_action( 'after_setup_theme', 'messingaround_setup' );
 
 /**
+ * Register custom fonts.  
+ * Borrowed from Twentyseventeen
+ */
+function messingaround_fonts_url() {
+	$fonts_url = '';
+
+	/*
+	 * Translators: If there are characters in your language that are not
+	 * supported by Merriweather and Proza Libre, translate this to 'off'. Do not translate
+	 * into your own language.
+	 */
+	$merriweather = _x( 'on', 'Merriweather font: on or off', 'messingaround' );
+	$proza_libre = _x( 'on', 'Proza Libre font: on or off', 'messingaround' );
+
+	$font_families = array();
+
+	if ( 'off' !== $merriweather ) {
+		$font_families[] = 'Merriweather:300, 300i, 400, 700, 700i';
+	}
+
+	if ( 'off' !== $proza_libre ) {
+		$font_families[] = 'Proza Libre:600, 600i, 700, 700i';	
+	}
+
+	if ( in_array( 'on', array($merriweather, $proza_libre ) ) ) {
+		$query_args = array(
+			'family' => urlencode( implode( '|', $font_families ) ),
+			'subset' => urlencode( 'latin,latin-ext' ),
+		);
+
+		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+	}
+
+	return esc_url_raw( $fonts_url );
+}
+
+/**
+ * Add preconnect for Google Fonts.
+ * Borrowed from Twentyseventeen
+ *
+ * @since Twenty Seventeen 1.0
+ *
+ * @param array  $urls           URLs to print for resource hints.
+ * @param string $relation_type  The relation type the URLs are printed.
+ * @return array $urls           URLs to print for resource hints.
+ */
+function messingaround_resource_hints( $urls, $relation_type ) {
+	if ( wp_style_is( 'messingaround-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
+		$urls[] = array(
+			'href' => 'https://fonts.gstatic.com',
+			'crossorigin',
+		);
+	}
+
+	return $urls;
+}
+add_filter( 'wp_resource_hints', 'messingaround_resource_hints', 10, 2 );
+
+/**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
  * Priority 0 to make it available to lower priority callbacks.
@@ -121,7 +181,7 @@ add_action( 'widgets_init', 'messingaround_widgets_init' );
  */
 function messingaround_scripts() {
 	//Enqueue Google Fonts: Merriweather and Proza Libre.
-	wp_enqueue_style( 'messingaround-fonts', 'https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,700|Proza+Libre:600,600i,700,700i&display=swap' );
+	wp_enqueue_style( 'messingaround-fonts', messingaround_fonts_url() );
 	
 	wp_enqueue_style( 'messingaround-style', get_stylesheet_uri() );
 
