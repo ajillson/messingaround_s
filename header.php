@@ -24,6 +24,12 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'messingaround' ); ?></a>
 
+	<?php if ( get_header_image() ) : ?>
+		<figure class="header-image">
+			<?php the_header_image_tag(); ?>
+		</figure><!-- .header-image -->
+	<?php endif; // End header image check. ?>
+
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
 			<?php
