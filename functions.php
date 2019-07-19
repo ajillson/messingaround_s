@@ -75,10 +75,10 @@ if ( ! function_exists( 'messingaround_setup' ) ) :
 		 * @link https://codex.wordpress.org/Theme_Logo
 		 */
 		add_theme_support( 'custom-logo', array(
-			'height'      => 250,
-			'width'       => 250,
+			'height'      => 90,
+			'width'       => 90,
 			'flex-width'  => true,
-			'flex-height' => true,
+			'flex-height' => false,
 		) );
 	}
 endif;

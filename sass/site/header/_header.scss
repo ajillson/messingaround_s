@@ -21,7 +21,24 @@
 }
 
 .site-branding {
+	display: flex;
 	min-height: 65px;
+}
+
+.custom-logo-link {
+	margin-right: 1em;
+	img {
+		display: block;
+		height: 65px;
+		width: auto;
+	}
+}
+
+.site-branding__text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 65px;
 }
 
 .site-title {
@@ -30,7 +47,7 @@
 	font-size: 1.6em;
     font-weight: 900;
     // letter-spacing: .03em;
-    line-height: 1.6em;
+    line-height: 1em;
 	
 	a {
 		color: white;
@@ -57,7 +74,8 @@
     }
 
     .site-branding {
-        width: 35%;
+		width: 35%;
+		flex: 1 0 auto;
     }
 
     .site-navigation {

@@ -24,7 +24,7 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'messingaround' ); ?></a>
 
-	<?php if ( get_header_image() ) : ?>
+	<?php if ( get_header_image() && is_front_page() ) : ?>
 		<figure class="header-image">
 			<?php the_header_image_tag(); ?>
 		</figure><!-- .header-image -->
@@ -32,22 +32,25 @@
 
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+
+			<?php the_custom_logo(); ?>
+			<div class="site-branding__text">
 				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$messingaround_description = get_bloginfo( 'description', 'display' );
-			if ( $messingaround_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $messingaround_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
+				if ( is_front_page() && is_home() ) :
+					?>
+					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<?php
+				else :
+					?>
+					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+					<?php
+				endif;
+				$messingaround_description = get_bloginfo( 'description', 'display' );
+				if ( $messingaround_description || is_customize_preview() ) :
+					?>
+					<p class="site-description"><?php echo $messingaround_description; /* WPCS: xss ok. */ ?></p>
+				<?php endif; ?>
+			</div><!-- .site-branding__text -->	
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
