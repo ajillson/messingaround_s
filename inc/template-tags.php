@@ -74,6 +74,23 @@ if ( ! function_exists( 'messingaround_comments' ) ) :
 			);
 			echo '</span>';
 		}
+
+		edit_post_link(
+			sprintf(
+				wp_kses(
+					/* translators: %s: Name of current post. Only visible to screen readers */
+					__( 'Edit <span class="screen-reader-text">%s</span>', 'messingaround' ),
+					array(
+						'span' => array(
+							'class' => array(),
+						),
+					)
+				),
+				get_the_title()
+			),
+			' <span class="edit-link"><span class="extra">Admin </span>',
+			'</span>'
+		);
 	}
 endif;	
 
@@ -93,23 +110,6 @@ if ( ! function_exists( 'messingaround_entry_footer' ) ) :
 				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'messingaround' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 			}
 		}
-
-		edit_post_link(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="screen-reader-text">%s</span>', 'messingaround' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				get_the_title()
-			),
-			'<span class="edit-link"><span class="extra">Admin </span>',
-			'</span>'
-		);
 	}
 endif;
 
