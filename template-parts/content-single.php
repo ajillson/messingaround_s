@@ -19,7 +19,7 @@
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
 
-		if ( 'post' === get_post_type() ) :
+		if ( is_active_sidebar( 'sidebar-1') ) :
 			?>
 			<div class="entry-meta">
 				<?php
@@ -34,6 +34,22 @@
 	<?php messingaround_post_thumbnail(); ?>
 
 	<section class="post-content">
+
+	<?php
+	if ( !is_active_sidebar( 'sidebar-1') ) : ?>
+		<div class="post-content__wrap">
+		
+		<div class="entry-meta">
+			<?php
+			messingaround_posted_by();
+			messingaround_posted_on();
+			messingaround_comments();
+			?>
+		</div><!-- .entry-meta -->
+		
+		<div class="post-content__body">
+	<?php endif; ?>
+
 		<div class="entry-content">
 			<?php
 			the_content( sprintf(
@@ -59,6 +75,12 @@
 		<footer class="entry-footer">
 			<?php messingaround_entry_footer(); ?>
 		</footer><!-- .entry-footer -->
+
+		<?php 
+		if ( !is_active_sidebar( 'sidebar-1' ) ) : ?>
+		</div><!-- .post-content__body -->
+		</div><!-- .post-content__wrap -->
+		<?php endif; ?>
 
 		<?php 
 		messingaround_post_navigation();

@@ -57,7 +57,7 @@ if ( ! function_exists( 'messingaround_comments' ) ) :
 	 */
 	function messingaround_comments() {
 		if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo ' <span class="comments-link">';
+			echo ' <span class="comments-link"><span class="extra">Discussion </span>';
 			comments_popup_link(
 				sprintf(
 					wp_kses(
@@ -107,7 +107,7 @@ if ( ! function_exists( 'messingaround_entry_footer' ) ) :
 				),
 				get_the_title()
 			),
-			'<span class="edit-link">',
+			'<span class="edit-link"><span class="extra">Admin </span>',
 			'</span>'
 		);
 	}
