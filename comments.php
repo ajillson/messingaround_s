@@ -32,13 +32,13 @@ if ( post_password_required() ) {
 			if ( '1' === $messingaround_comment_count ) {
 				printf(
 					/* translators: 1: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'messingaround' ),
+					esc_html__( 'One comment', 'messingaround' ),
 					'<span>' . get_the_title() . '</span>'
 				);
 			} else {
 				printf( // WPCS: XSS OK.
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $messingaround_comment_count, 'comments title', 'messingaround' ) ),
+					esc_html( _nx( '%1$s comments', '%1$s comments', $messingaround_comment_count, 'comments title', 'messingaround' ) ),
 					number_format_i18n( $messingaround_comment_count ),
 					'<span>' . get_the_title() . '</span>'
 				);
@@ -46,13 +46,12 @@ if ( post_password_required() ) {
 			?>
 		</h2><!-- .comments-title -->
 
-		<?php the_comments_navigation(); ?>
-
 		<ol class="comment-list">
 			<?php
 			wp_list_comments( array(
 				'style'      => 'ol',
 				'short_ping' => true,
+				'avatar_size' => '96',
 			) );
 			?>
 		</ol><!-- .comment-list -->
