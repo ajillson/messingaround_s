@@ -31,7 +31,12 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php messingaround_post_thumbnail(); ?>
+	<?php
+	if ( has_post_thumbnail() ) { ?>
+		<figure class="featured-image full-bleed">
+			<?php messingaround_post_thumbnail( 'messingaround-full-bleed' ); ?>
+		</figure><!-- .featured-image full-bleed -->
+	<?php } ?>
 
 	<section class="post-content">
 
