@@ -42,7 +42,13 @@ get_header();
 
 			endwhile;
 
-			the_posts_navigation();
+			the_posts_pagination( array(
+				'prev_text' => __( 'Newer', 'messingaround'),
+				'next_text' => __( 'Older', 'messingaround'),
+				'before_page_number' => '<span class="screen-reader-text">' . __(
+					'Page ', 'messingaround') . '</span>',
+				)
+			);
 
 		else :
 
