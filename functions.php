@@ -43,6 +43,7 @@ if ( ! function_exists( 'messingaround_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 		add_image_size( 'messingaround-full-bleed', 2000, 1200, true);
+		add_image_size( 'messingaround-index-img', 800, 450, true);
 
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus( array(
