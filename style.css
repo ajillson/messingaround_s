@@ -1028,7 +1028,8 @@ a:hover, a:active {
 	background-color: lightgray;
 }
 
-.archive-view .post {
+.archive-view .post,
+.archive-view .page {
 	position: relative;
 	background: white;
 }
