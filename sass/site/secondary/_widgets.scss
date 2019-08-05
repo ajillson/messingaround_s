@@ -2,6 +2,16 @@
 	margin-top: 1.5em;
 }
 
+.archive-view {
+	@media screen and (min-width: $query__medium) {
+		&.has-sidebar {
+			.footer-widgets {
+				width: 100%;
+			}
+		}
+	}
+}
+
 .widget {
 	margin: 0 0 2em;
 	padding: 0 0 2em;
