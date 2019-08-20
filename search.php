@@ -21,12 +21,18 @@ if ( have_posts() ) : ?>
 					?>
 				</h1>
 			</header><!-- .page-header -->
-<?php endif; ?>
+
+<?php
+else :
+
+	get_template_part( 'template-parts/content', 'none' );
+	return;
+
+endif;
+?>
 
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main">
-
-		<?php if ( have_posts() ) : ?>
 
 			<?php
 			/* Start the Loop */
@@ -48,14 +54,8 @@ if ( have_posts() ) : ?>
 				'before_page_number' => '<span class="screen-reader-text">' . __(
 					'Page ', 'messingaround') . '</span>',
 				)
-			);
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
+			); 
+			?>
 
 		</main><!-- #main -->
 	</section><!-- #primary -->

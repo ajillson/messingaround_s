@@ -19,7 +19,13 @@ get_header();
 		?>
 	</header><!-- .page-header -->
 
-<?php endif; ?>
+	<?php
+else :
+
+	get_template_part( 'template-parts/content', 'none' );
+	return;
+
+endif; ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
@@ -48,12 +54,6 @@ get_header();
 					'Page ', 'messingaround') . '</span>',
 				)
 			);
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
 		?>
 
 		</main><!-- #main -->

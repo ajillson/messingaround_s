@@ -15,18 +15,19 @@
 get_header();
 ?>
 
+<?php
+if ( have_posts() ) : ?>
+
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+		<main id="main" class="site-main" role="main">
 
-		<?php
-		if ( have_posts() ) :
-
-			if ( is_home() && ! is_front_page() ) :
-				?>
+			<?php
+			if ( is_home() && ! is_front_page() ) : ?>
 				<header>
 					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 				</header>
-				<?php
+
+			<?php
 			endif;
 
 			/* Start the Loop */
@@ -50,12 +51,7 @@ get_header();
 				)
 			);
 
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
+			?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
