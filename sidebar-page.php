@@ -1,0 +1,17 @@
+<?php
+/**
+ * The sidebar containing the page widget area
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package Messing_Around
+ */
+
+if ( ! is_active_sidebar( 'sidebar-3' ) ) {
+	return;
+}
+?>
+
+<aside id="page-secondary" class="widget-area page-sidebar" role="complementary">
+	<?php dynamic_sidebar( 'sidebar-3' ); ?>
+</aside><!-- #secondary -->

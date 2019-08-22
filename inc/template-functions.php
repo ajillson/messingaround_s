@@ -18,11 +18,16 @@ function messingaround_body_classes( $classes ) {
 		$classes[] = 'archive-view';
 	}
 
-	// Adds a class of no-sidebar when there is no sidebar present.
+	// Adds a class which tells if the sidebar is present or not.
 	if ( is_active_sidebar( 'sidebar-1' ) ) {
 		$classes[] = 'has-sidebar';
 	} else {
 		$classes[] = 'no-sidebar';
+	}
+
+	// Adds a class of has-page-sidebar when there is page sidebar present.
+	if ( is_active_sidebar( 'sidebar-3' ) ) {
+		$classes[] = 'has-page-sidebar';
 	}
 
 	return $classes;
@@ -44,11 +49,11 @@ add_action( 'wp_head', 'messingaround_pingback_header' );
  */
 function messingaround_post_navigation() {
 	the_post_navigation( array(
-		'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'humescores' ) . '</span> ' .
-			'<span class="screen-reader-text">' . __( 'Next post:', 'humescores' ) . '</span> ' .
+		'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'messingaround' ) . '</span> ' .
+			'<span class="screen-reader-text">' . __( 'Next post:', 'messingaround' ) . '</span> ' .
 			'<span class="post-title">%title</span>',
-		'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'humescores' ) . '</span> ' .
-			'<span class="screen-reader-text">' . __( 'Previous post:', 'humescores' ) . '</span> ' .
+		'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'messingaround' ) . '</span> ' .
+			'<span class="screen-reader-text">' . __( 'Previous post:', 'messingaround' ) . '</span> ' .
 			'<span class="post-title">%title</span>',
 	) );
 }

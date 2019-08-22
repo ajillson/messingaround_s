@@ -14,9 +14,14 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<?php messingaround_post_thumbnail(); ?>
+	<?php
+	if ( has_post_thumbnail() ) { ?>
+		<figure class="featured-image full-bleed">
+			<?php messingaround_post_thumbnail( 'messingaround-full-bleed' ); ?>
+		</figure><!-- .featured-image full-bleed -->
+	<?php } ?>
 
-	<div class="entry-content">
+	<div class="entry-content post-content">
 		<?php
 		the_content();
 
@@ -26,6 +31,10 @@
 		) );
 		?>
 	</div><!-- .entry-content -->
+
+	<?php
+	get_sidebar( 'page' );
+	?>
 
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
