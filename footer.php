@@ -15,30 +15,37 @@
 
 	<?php get_sidebar( 'footer' ); ?>
 
-	<footer id="colophon" class="site-footer">
-
-		<nav class="social-menu">
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-footer__wrap">
 			<?php
+			// Make sure there is a social menu to display.
+			if ( has_nav_menu( 'social' ) ) { ?>
+			<nav class="social-menu">
+				<?php
 				wp_nav_menu( array(
-					'theme_location' => 'menu-2',
-					'menu_id'        => 'footer-menu',
+					'theme_location' => 'social',
+					'menu_class'     => 'social-links-menu',
+					'depth'          => 1,
+					'link_before'    => '<span class="screen-reader-text">',
+					'link_after'     => '</span>' . messingaround_get_svg( array( 'icon' => 'chain' ) ),
 				) );
 			?>
-		</nav><!-- #social-menu -->
+			</nav><!-- #social-menu -->
+					<?php } ?>
 
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'messingaround' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'messingaround' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author */
-				printf( esc_html__( 'Theme: %1$s by %2$s', 'messingaround' ), 'messingaround', '<a href="http://underscores.me/">Aimee Jillson</a>' );
-				?>
-		</div><!-- .site-info -->
+			<div class="site-info">
+				<div><a href="<?php echo esc_url( __( 'https://wordpress.org/', 'messingaround' ) ); ?>">
+					<?php
+					/* translators: %s: CMS name, i.e. WordPress. */
+					printf( esc_html__( 'Proudly powered by %s', 'messingaround' ), 'WordPress' );
+					?>
+				</a></div>
+				<div><?php
+					/* translators: 1: Theme name, 2: Theme author */
+					printf( esc_html__( 'Theme: %1$s by %2$s', 'messingaround' ), 'messingaround', '<a href="https://aimeejillson.com" rel="designer">Aimee Jillson</a>' );
+				?></div>
+			</div><!-- .site-info -->
+		</div><!-- .site-footer__wrap -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

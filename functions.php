@@ -47,8 +47,8 @@ if ( ! function_exists( 'messingaround_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Header', 'messingaround' ),
-			'menu-2' => esc_html__( 'Footer', 'messingaround' ),
+			'primary' => esc_html__( 'Header', 'messingaround' ),
+			'social' => esc_html__( 'Social Media Menu', 'messingaround' ),
 		) );
 
 		/*
@@ -251,3 +251,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * SVG icons functions and filters.
+ */
+require get_parent_theme_file_path( '/inc/icon-functions.php' );

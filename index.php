@@ -42,8 +42,8 @@ get_header(); ?>
 			endwhile;
 
 			the_posts_pagination( array(
-				'prev_text' => __( 'Newer', 'messingaround' ),
-				'next_text' => __( 'Older', 'messingaround' ),
+				'prev_text' => messingaround_get_svg( array( 'icon' => 'arrow-long-left' ) ) . __( 'Newer', 'messingaround' ),
+				'next_text' => __( 'Older', 'messingaround' ) . messingaround_get_svg( array( 'icon' => 'arrow-long-right' ) ),
 				'before_page_number' => '<span class="screen-reader-text">' . __( 'Page ', 'messingaround' ) . '</span>',
 			));
 
